@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const NotesApp());
 }
-
+//notes app
 class NotesApp extends StatelessWidget {
   const NotesApp({super.key});
 
