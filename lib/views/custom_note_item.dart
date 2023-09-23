@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_flutter/models/note_model.dart';
 import 'package:notes_flutter/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
+  const NoteItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,21 +22,21 @@ class NoteItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(top: 24.0, bottom: 24.0, left: 16.0),
         decoration: BoxDecoration(
-            color: const Color(0xFFFFCC80),
+            color: Color(note.color),
             borderRadius: BorderRadius.circular(16.0)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter Tips',
-                style: TextStyle(color: Colors.black, fontSize: 26.0),
+              title: Text(
+                note.title,
+                style: const TextStyle(color: Colors.black, fontSize: 26.0),
               ),
-              subtitle: const Padding(
-                padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
                 child: Text(
-                  'Build your career with mostafa sayed',
-                  style: TextStyle(color: Colors.black45, fontSize: 18.0),
+                  note.subTitle,
+                  style: const TextStyle(color: Colors.black45, fontSize: 18.0),
                 ),
               ),
               trailing: IconButton(
@@ -47,11 +48,11 @@ class NoteItem extends StatelessWidget {
                 onPressed: () {},
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(right: 26.0),
+            Padding(
+              padding: const EdgeInsets.only(right: 26.0),
               child: Text(
-                'August 6, 2023',
-                style: TextStyle(color: Colors.black45, fontSize: 16),
+                note.date,
+                style: const TextStyle(color: Colors.black45, fontSize: 16),
               ),
             )
           ],
