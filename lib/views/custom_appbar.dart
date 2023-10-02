@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'custom_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.title, required this.icon});
+  const CustomAppBar({super.key, required this.title, required this.icon, this.onPressed});
 
   final String title;
   final IconData icon;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,7 +20,7 @@ class CustomAppBar extends StatelessWidget {
               fontSize: 28.0,
             ),
           ),
-          CustomSearchIcon(icon: icon,)
+          CustomIcon(icon: icon, onPressed: onPressed,)
         ],
       ),
     );
