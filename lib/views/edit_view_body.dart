@@ -5,6 +5,8 @@ import 'package:notes_flutter/models/note_model.dart';
 import 'package:notes_flutter/views/custom_appbar.dart';
 import 'package:notes_flutter/views/custom_text_field.dart';
 
+import 'edit_notes_color_list_view.dart';
+
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({super.key, required this.noteModel});
 
@@ -52,9 +54,17 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             },
             hintText: widget.noteModel.subTitle,
             maxLines: 5,
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          EditNoteColorsList(
+            note: widget.noteModel,
           )
         ],
       ),
     );
   }
 }
+
+
